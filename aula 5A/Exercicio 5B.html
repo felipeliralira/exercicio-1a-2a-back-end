@@ -15,9 +15,42 @@ do seu objeto.
     <p>Gasolina no Tanque: <span id="txtGasolina">20</span> Litros</p>
 
     <input type="number" id="valGasolina" placeholder="Quantos litros?">
-    <button onclick="executarAbastecimento()">Abastecer</button>
+    <button onclick="executarAbastecimento()">Abastecer</button><br>
+    <input type="number" id="tiraGasolina" placeholder="Quantos litros quer tirar?">
+    <button onclick="removerGasolina()">Remover</button><br>
 
     <script>
+        const carro = {
+            combustivel: 20,
+            adicionarGasolina: function(quantidade){
+                this.combustivel += quantidade;
+            },
+            removeGasolina: function(valor){
+                this.combustivel -= valor;
+            }
+        };
+
+        function executarAbastecimento(){
+            let valorDigitado = Number(document.getElementById('valGasolina').value);
+
+            if (valorDigitado <=0){
+                alert("Digite um número válido!");
+                return;
+            }
+            carro.adicionarGasolina(valorDigitado);
+            document.getElementById('txtGasolina').innerHTML = carro.combustivel;
+        }
+
+        function removerGasolina(){
+            let valorTirar = Number(document.getElementById('tiraGasolina').value);
+
+            if (valorTirar > carro.combustivel){
+                alert(`Não é possível retirar tudo isso de combustível.Combustível atual: ${carro.combustivel}`);
+                return;
+            }
+            carro.removeGasolina(valorTirar);
+            document.getElementById('txtGasolina').innerHTML = carro.combustivel;
+        }
        
     </script>
 </body>

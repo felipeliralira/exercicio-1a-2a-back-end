@@ -26,19 +26,18 @@ valor e o envia para dentro do método, que soma o dinheiro ao saldo atual da co
             saldo1: 100,
             depositar: function(valor){
                 this.saldo1 += valor;
-                return this.saldo1;
             }
         };
 
         function executarDeposito(){
-            let valorDigitado = parseFloat(document.getElementById('valDeposito').value);
+            let valorDigitado = Number(document.getElementById('valDeposito').value);
 
             if (valorDigitado <=0){
                 alert("Por favor, digite um número válido");
                 return;
             }
-            let resultado = saldo.depositar(valorDigitado);
-            document.getElementById('txtSaldo').innerHTML = resultado;
+            saldo.depositar(valorDigitado);
+            document.getElementById('txtSaldo').innerHTML = saldo.saldo1;
         };
     </script>
 </body>
