@@ -23,19 +23,23 @@ valor e o envia para dentro do método, que soma o dinheiro ao saldo atual da co
 
     <script>
         const saldo = {
-            saldo: 100,
+            saldo1: 100,
             depositar: function(valor){
-                saldo += valor;
+                this.saldo1 += valor;
+                return this.saldo1;
             }
-        }
+        };
 
         function executarDeposito(){
-            saldo.depositar(valor)
-            valor = document.getElementById('valDeposito');
-            document.getElementById('txtSaldo').innerHTML = saldo.depositar(valor);
+            let valorDigitado = parseFloat(document.getElementById('valDeposito').value);
 
-        }
-        
+            if (valorDigitado <=0){
+                alert("Por favor, digite um número válido");
+                return;
+            }
+            let resultado = saldo.depositar(valorDigitado);
+            document.getElementById('txtSaldo').innerHTML = resultado;
+        };
     </script>
 </body>
 </html>
