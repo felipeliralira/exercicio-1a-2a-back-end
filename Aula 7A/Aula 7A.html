@@ -16,6 +16,7 @@ etiqueta de preço estilizada.
     <title>7A - Fazer Junto: Produto</title>
 </head>
 <body>
+
     <h2>Exemplo 7A: Gerador de Etiqueta</h2>
     <input type="text" id="nomeProd" placeholder="Nome do Produto"><br><br>
     <input type="number" id="precoProd" placeholder="Preço do Produto"><br><br>
@@ -23,7 +24,22 @@ etiqueta de preço estilizada.
     
     <p id="txtEtiqueta" style="border: 1px dashed black; padding: 10px; width: 200px; display:none;"></p>
 
-    <script>
+<script>
+    const produto = {
+        nome: "",
+        preco: 0,
+        obterLinhaEtiqueta: function(){
+            return `Produto: ${this.nome.toUpperCase()} | Preço: R$ ${Number(this.preco).toFixed(2)}`;
+        }};
+
+    function gerarEtiqueta(){
+        produto.nome = document.getElementById('nomeProd').value;
+        produto.preco = document.getElementById('precoProd').value;
+        
+        let container = document.getElementById('txtEtiqueta');
+        container.style.display = "block";
+        container.innerText = produto.obterLinhaEtiqueta();
+    };
         
     </script>
 </body>
