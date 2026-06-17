@@ -26,12 +26,18 @@ para aproveitar o cálculo pronto do método vizinho.
             n1: 8.0,
             n2: 5.0,
             calcularMedia: function(){
-                Number((this.n1 + this.n2)/2)
-                return;
+                return Number((this.n1 + this.n2)/2)
             },
             obterSituacao: function(){
-                
-            }
+                if(boletim.calcularMedia >=6.0 ){
+                    return "Aprovado"
+                }else{
+                    return "Reprovado"
+                }}};
+
+        function verificarBoletim(){
+            let mensagem = boletim.obterSituacao();
+            document.getElementById('txtResultado').innerHTML = mensagem;
         };
         
     </script>
