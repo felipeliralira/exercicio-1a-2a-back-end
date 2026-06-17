@@ -21,6 +21,27 @@ Ele possui a propriedade quantidade controlada por dois botões distintos no HTM
     <button onclick="removerCamiseta()">-</button>
 
     <script>
+        const item ={
+            qtd: 0,
+            adicionar: function(){
+                this.qtd += 1;
+                return;
+            },
+            remover: function(){
+                this.qtd -= 1;
+                return"";
+            }
+        };
+
+        function adicionarCamiseta(){
+            let adicionar = item.adicionar();
+            document.getElementById('qtdCamiseta').innerHTML = adicionar;
+            return"";
+        }
+
+        function removerCamiseta(){
+            document.getElementById('remover').innerHTML = item.qtd
+        }
        
     </script>
 </body>
