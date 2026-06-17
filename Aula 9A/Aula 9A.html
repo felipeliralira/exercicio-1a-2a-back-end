@@ -23,24 +23,22 @@ Ele possui a propriedade quantidade controlada por dois botões distintos no HTM
     <script>
         const item ={
             qtd: 0,
-            adicionar: function(){
-                this.qtd += 1;
-                return;
-            },
+            adicionar: function(){this.qtd++;},
             remover: function(){
-                this.qtd -= 1;
-                return"";
-            }
+                if(this.qtd >0){
+                    this.qtd --;
+                }}
         };
 
         function adicionarCamiseta(){
-            let adicionar = item.adicionar();
-            document.getElementById('qtdCamiseta').innerHTML = adicionar;
-            return"";
+            item.adicionar();
+            document.getElementById('qtdCamiseta').innerHTML = item.qtd;
         }
 
         function removerCamiseta(){
-            document.getElementById('remover').innerHTML = item.qtd
+            item.remover();
+            document.getElementById('qtdCamiseta').innerHTML = item.qtd;
+
         }
        
     </script>
