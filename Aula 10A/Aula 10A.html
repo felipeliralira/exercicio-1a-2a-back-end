@@ -26,13 +26,13 @@ para aproveitar o cálculo pronto do método vizinho.
             n1: 8.0,
             n2: 5.0,
             calcularMedia: function(){
-                return Number((this.n1 + this.n2)/2)
+                return (this.n1 + this.n2)/2;
             },
             obterSituacao: function(){
-                if(boletim.calcularMedia >=6.0 ){
-                    return "Aprovado"
+                if(boletim.calcularMedia() >=6.0 ){
+                    return "Aprovado com média "+ this.calcularMedia();
                 }else{
-                    return "Reprovado"
+                    return "Reprovado com média "+ this.calcularMedia();
                 }}};
 
         function verificarBoletim(){
